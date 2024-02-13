@@ -6,7 +6,7 @@ interface TodoFormProps {
   task: ITasks
 }
 
-const TodoForm = ({ task }: TodoFormProps) => {
+const ComplitedTask = ({ task }: TodoFormProps) => {
   const [isCompleted, setIsCompleted] = useState(task.completed)
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const TodoForm = ({ task }: TodoFormProps) => {
       <input
         checked={task.completed}
         type='checkbox'
-        onClick={() => {
+        onChange={() => {
           updateStatusTask({
             id: task.id,
             taskName: task.taskName,
@@ -32,10 +32,10 @@ const TodoForm = ({ task }: TodoFormProps) => {
       />
 
       <label className='w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-        {task.taskName}
+        <span className='line-through'>{task.taskName}</span>
       </label>
     </div>
   )
 }
 
-export default TodoForm
+export default ComplitedTask
