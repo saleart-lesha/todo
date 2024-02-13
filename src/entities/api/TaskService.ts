@@ -26,7 +26,15 @@ const taskService = TaskService.injectEndpoints({
         url: '/taskCompleted',
       }),
     }),
+    addTask: build.mutation<ITasks, { taskName: string; completed: boolean }>({
+      query: (body) => ({
+        url: '/tasks',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Tasks'],
+    }),
   }),
 })
 
-export const { useGetTasksQuery, useUpdateTasksMutation } = taskService
+export const { useGetTasksQuery, useUpdateTasksMutation, useAddTaskMutation } = taskService
