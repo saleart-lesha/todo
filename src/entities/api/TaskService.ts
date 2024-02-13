@@ -19,6 +19,7 @@ const taskService = TaskService.injectEndpoints({
           body,
         }
       },
+      invalidatesTags: ['Tasks'],
     }),
     getCompletedTasks: build.mutation<ITasksCompleted[], void>({
       query: () => ({
