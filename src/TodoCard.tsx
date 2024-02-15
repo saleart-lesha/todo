@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useGetTasksQuery } from './entities/api/TaskService'
 import { ITasks } from './entities/model/ITasks'
+import AddingForm from './entities/ui/AddingForm'
 import CompletedTask from './entities/ui/CompletedTask'
 import TodoForm from './entities/ui/TodoForm'
-import AddingForm from './entities/ui/AddingForm'
 
 const TodoCard = () => {
   const { data: tasks } = useGetTasksQuery()
@@ -13,9 +13,9 @@ const TodoCard = () => {
     else setIsDropInput(true)
   }
   return (
-    <div className=' bg-slate-400 w-1/2 rounded-lg p-4'>
+    <div className=' bg-blue-200 w-1/2 rounded-lg p-4'>
       <div>
-        <h3>Мои задачи</h3>
+        <h3 className='text-purple-400 font-black text-xl ps-1'>Мои задачи</h3>
         <ul>
           {tasks?.map((task: ITasks) => (
             <li key={task.id} className='rounded-none bg-white m-1'>
@@ -29,7 +29,7 @@ const TodoCard = () => {
         <div className='flex justify-center m-1'>
           <button
             onClick={() => handleDropInput()}
-            className='rounded-full bg-green-200 hover:bg-green-400 inline-flex items-center w-10 h-10'
+            className='rounded-full bg-green-200 hover:bg-green-300 inline-flex items-center w-10 h-10'
           >
             <img
               className='w-10 h-10'
@@ -41,7 +41,9 @@ const TodoCard = () => {
       </div>
       <div>
         <details className='drop-shadow' open>
-          <summary className='m-1 btn'>Завершенные</summary>
+          <summary className='m-1 btn bg-white w-40 text-lg text-purple-400 font-black'>
+            <span>Завершенные</span>
+          </summary>
           <ul>
             {tasks?.map((task: ITasks) => (
               <li key={task.id} className='rounded-none bg-white m-1'>

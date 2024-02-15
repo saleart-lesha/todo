@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { useAddTaskMutation } from '../api/TaskService'
 
 interface AddingFormProps {
@@ -28,7 +28,7 @@ const AddingForm = ({ setIsDropInput }: AddingFormProps) => {
             setIsDropInput(false)
           }
         }}
-        className='w-4 h-4 border-black bg-blue-500 hover:bg-blue-600 inline-flex items-center'
+        className='w-4 h-4 border-black bg-sky-200 hover:bg-sky-300 inline-flex items-center'
       >
         <img
           className='w-4 h-4'

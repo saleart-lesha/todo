@@ -1,6 +1,5 @@
 import { TaskService } from '../../app/services/TaskService'
 import { ITasks } from '../model/ITasks'
-import { ITasksCompleted } from '../model/ITasksCompleted'
 
 const taskService = TaskService.injectEndpoints({
   endpoints: (build) => ({
@@ -21,12 +20,7 @@ const taskService = TaskService.injectEndpoints({
       },
       invalidatesTags: ['Tasks'],
     }),
-    getCompletedTasks: build.mutation<ITasksCompleted[], void>({
-      query: () => ({
-        url: '/taskCompleted',
-      }),
-    }),
-    addTask: build.mutation<ITasks, { taskName: string; completed: boolean }>({
+    addTask: build.mutation<void, { taskName: string; completed: boolean }>({
       query: (body) => ({
         url: '/tasks',
         method: 'POST',
@@ -34,7 +28,14 @@ const taskService = TaskService.injectEndpoints({
       }),
       invalidatesTags: ['Tasks'],
     }),
+    deleteTask: build.mutation<void, number>({
+      query: (id) => ({
+        url: `/tasks/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Tasks'],
+    }),
   }),
 })
 
-export const { useGetTasksQuery, useUpdateTasksMutation, useAddTaskMutation } = taskService
+export const { useGetTasksQuery, useUpdateTasksMutation, useAddTaskMutation, useDeleteTaskMutation } = taskService

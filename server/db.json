@@ -15,11 +15,5 @@
       "completed": false,
       "id": "3"
     }
-  ],
-  "tasksCompleted": [
-    {
-      "id": "1",
-      "taskCompletedName": "Добавить задачу №1"
-    }
   ]
 }
