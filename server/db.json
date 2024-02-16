@@ -12,7 +12,7 @@
     },
     {
       "taskName": "Добавить задачу №3",
-      "completed": false,
+      "completed": true,
       "id": "3"
     }
   ]

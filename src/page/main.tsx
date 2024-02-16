@@ -1,7 +1,6 @@
-import React from 'react'
-import TodoCard from './TodoCard'
+import TodoCard from '../widget/TodoCard'
 
-function App() {
+function Main() {
   return (
     <div className='flex justify-center flex-col items-center mt-96'>
       <h2>Todos</h2>
@@ -10,4 +9,4 @@ function App() {
   )
 }
 
-export default App
+export default Main
