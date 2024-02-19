@@ -7,7 +7,7 @@ function Main() {
     <div className='flex justify-center flex-col items-center mt-96'>
       <Routes>
         <Route path='/' element={<TodoCard />} />
-        <Route path='/task' element={<TaskCard />} />
+        <Route path='/tasks/:id' element={<TaskCard />} />
       </Routes>
     </div>
   )

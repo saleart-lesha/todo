@@ -9,6 +9,12 @@ const taskService = TaskService.injectEndpoints({
       }),
       providesTags: ['Tasks'],
     }),
+    getTaskDetails: build.query<ITasks, string>({
+      query: (id) => ({
+        url: `tasks/${id}`,
+      }),
+      providesTags: ['Tasks'],
+    }),
     updateTasks: build.mutation<ITasks, Partial<ITasks>>({
       query(data) {
         const { id, ...body } = data
@@ -40,6 +46,7 @@ const taskService = TaskService.injectEndpoints({
 
 export const {
   useGetTasksQuery,
+  useLazyGetTaskDetailsQuery,
   useUpdateTasksMutation,
   useAddTaskMutation,
   useDeleteTaskMutation,
