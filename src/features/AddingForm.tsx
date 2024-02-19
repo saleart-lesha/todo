@@ -1,11 +1,7 @@
-import { Dispatch, SetStateAction, useState } from 'react'
-import { useAddTaskMutation } from '../api/TaskService'
+import { useState } from 'react'
+import { useAddTaskMutation } from '../entities/Task/api/TaskService'
 
-interface AddingFormProps {
-  setIsDropInput: Dispatch<SetStateAction<boolean>>
-}
-
-const AddingForm = ({ setIsDropInput }: AddingFormProps) => {
+const AddingForm = () => {
   const [value, setValue] = useState<string>('')
   const [addTask] = useAddTaskMutation()
 
@@ -19,13 +15,14 @@ const AddingForm = ({ setIsDropInput }: AddingFormProps) => {
       />
       <input
         onChange={(e) => setValue(e.target.value)}
-        className=' w-full text-lg py-1 m-2 font-medium text-gray-900 dark:text-gray-300'
+        value={value}
+        className=' w-full text-lg py-1 m-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
       ></input>
       <button
         onClick={() => {
           if (value) {
             addTask({ taskName: value, completed: false })
-            setIsDropInput(false)
+            setValue('')
           }
         }}
         className='w-6 h-6 border-black bg-sky-200 hover:bg-sky-300 inline-flex items-center'

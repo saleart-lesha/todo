@@ -1,10 +1,14 @@
+import { Route, Routes } from 'react-router-dom'
+import TaskCard from '../widget/TaskCard'
 import TodoCard from '../widget/TodoCard'
 
 function Main() {
   return (
     <div className='flex justify-center flex-col items-center mt-96'>
-      <h2>Todos</h2>
-      <TodoCard />
+      <Routes>
+        <Route path='/' element={<TodoCard />} />
+        <Route path='/task' element={<TaskCard />} />
+      </Routes>
     </div>
   )
 }

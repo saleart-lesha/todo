@@ -12,8 +12,8 @@
     },
     {
       "taskName": "Добавить задачу №3",
-      "completed": true,
-      "id": "3"
+      "completed": false,
+      "id": "f844"
     }
   ]
 }

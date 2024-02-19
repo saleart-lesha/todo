@@ -1,4 +1,4 @@
-import { TaskService } from '../../app/services/TaskService'
+import { TaskService } from '../../../app/services/TaskService'
 import { ITasks } from '../model/ITasks'
 
 const taskService = TaskService.injectEndpoints({
@@ -38,4 +38,9 @@ const taskService = TaskService.injectEndpoints({
   }),
 })
 
-export const { useGetTasksQuery, useUpdateTasksMutation, useAddTaskMutation, useDeleteTaskMutation } = taskService
+export const {
+  useGetTasksQuery,
+  useUpdateTasksMutation,
+  useAddTaskMutation,
+  useDeleteTaskMutation,
+} = taskService
