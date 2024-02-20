@@ -1,6 +1,6 @@
-export interface ITasks {
+export interface ITask {
   id: number
   taskName: string
   completed: boolean
-  discription: string
+  description: string
 }

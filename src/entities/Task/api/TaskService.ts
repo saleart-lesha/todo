@@ -1,21 +1,21 @@
 import { TaskService } from '../../../app/services/TaskService'
-import { ITasks } from '../model/ITasks'
+import { ITask } from '../model/ITask'
 
 const taskService = TaskService.injectEndpoints({
   endpoints: (build) => ({
-    getTasks: build.query<ITasks[], void>({
+    getTasks: build.query<ITask[], void>({
       query: () => ({
         url: '/tasks',
       }),
       providesTags: ['Tasks'],
     }),
-    getTaskDetails: build.query<ITasks, string>({
+    getTaskDetails: build.query<ITask, string>({
       query: (id) => ({
         url: `tasks/${id}`,
       }),
       providesTags: ['Tasks'],
     }),
-    updateTasks: build.mutation<ITasks, Partial<ITasks>>({
+    updateTasks: build.mutation<ITask, Partial<ITask>>({
       query(data) {
         const { id, ...body } = data
         return {
@@ -46,7 +46,7 @@ const taskService = TaskService.injectEndpoints({
 
 export const {
   useGetTasksQuery,
-  useLazyGetTaskDetailsQuery,
+  useGetTaskDetailsQuery,
   useUpdateTasksMutation,
   useAddTaskMutation,
   useDeleteTaskMutation,

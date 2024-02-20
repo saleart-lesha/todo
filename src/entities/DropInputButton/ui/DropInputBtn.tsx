@@ -4,11 +4,10 @@ interface DropInputBtnProps {
 }
 
 const DropInputBtn = ({ isDropInput, handlerDropInput }: DropInputBtnProps) => {
-    
   return (
     <div className='flex justify-center m-2'>
       <button
-        onClick={() => handlerDropInput()}
+        onClick={handlerDropInput}
         className={
           isDropInput
             ? 'rounded-full bg-red-200 hover:bg-red-300 inline-flex items-center w-10 h-10'

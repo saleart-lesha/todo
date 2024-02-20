@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDeleteTaskMutation, useUpdateTasksMutation } from '../api/TaskService'
-import { ITasks } from '../model/ITasks'
+import { ITask } from '../model/ITask'
 
 interface TaskUpdateFormProps {
-  task: ITasks
+  task: ITask
 }
 
 const TaskUpdateForm = ({ task }: TaskUpdateFormProps) => {
@@ -13,7 +13,7 @@ const TaskUpdateForm = ({ task }: TaskUpdateFormProps) => {
   const [updateTask] = useUpdateTasksMutation()
   const [deleteTask] = useDeleteTaskMutation()
 
-  const [value, setValue] = useState<ITasks>(task)
+  const [value, setValue] = useState<ITask>(task)
 
   return (
     <div className='flex flex-col'>
@@ -23,16 +23,14 @@ const TaskUpdateForm = ({ task }: TaskUpdateFormProps) => {
           className='m-1 p-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
           type='text'
           value={value.taskName}
-          onChange={(e) => setValue({ ...value, taskName: e.target.value })}
+          onChange={(e) => setValue((prevState) => ({ ...prevState, taskName: e.target.value }))}
         />
       </div>
       <div className='flex flex-col mb-3'>
         <span className='text-purple-400 font-black text-xl ps-1'>Заметки</span>
         <textarea
-          value={value.discription}
-          onChange={(e) => {
-            setValue({ ...value, discription: e.target.value })
-          }}
+          value={value.description}
+          onChange={(e) => setValue((prevState) => ({ ...prevState, description: e.target.value }))}
           className='h-36 resize-none m-1 p-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
         />
       </div>
