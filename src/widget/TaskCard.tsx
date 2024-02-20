@@ -1,12 +1,10 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import TaskUpdateForm from '../entities/Task/ui/TaskUpdateForm'
-import { useEffect, useState } from 'react'
 import { useLazyGetTaskDetailsQuery } from '../entities/Task/api/TaskService'
-import { ITasks } from '../entities/Task/model/ITasks'
+import TaskUpdateForm from '../entities/Task/ui/TaskUpdateForm'
 
 const TaskCard = () => {
   const { id } = useParams()
-  console.log(id)
   const [fetchTask, { data: task }] = useLazyGetTaskDetailsQuery()
 
   useEffect(() => {

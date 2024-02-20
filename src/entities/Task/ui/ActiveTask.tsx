@@ -30,6 +30,7 @@ const ActiveTask = ({ task }: TodoFormProps) => {
             id: task.id,
             taskName: task.taskName,
             completed: isCompleted,
+            discription: task.discription,
           })
         }}
         value=''
