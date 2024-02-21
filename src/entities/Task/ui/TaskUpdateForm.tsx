@@ -17,30 +17,36 @@ const TaskUpdateForm = ({ task }: TaskUpdateFormProps) => {
 
   return (
     <div className='flex flex-col'>
-      <div className='flex flex-col mb-4'>
-        <span className='text-purple-400 font-black text-xl ps-1'>Задача</span>
-        <input
-          className='m-1 p-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
-          type='text'
-          value={value.taskName}
-          onChange={(e) => setValue((prevState) => ({ ...prevState, taskName: e.target.value }))}
-        />
+      <div className='flex flex-col mb-3'>
+        <h3 className='font-bold text-xl ps-1 border-b-stone-200 border-b-2 mb-4 '>Задача</h3>
+        <div className='flex items-center rounded-full border-2 border-neutral-200 bg-white m-1'>
+          <input
+            className='w-full text-lg py-2 pl-4 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-full'
+            type='text'
+            value={value.taskName}
+            onChange={(e) => setValue((prevState) => ({ ...prevState, taskName: e.target.value }))}
+          />
+        </div>
       </div>
       <div className='flex flex-col mb-3'>
-        <span className='text-purple-400 font-black text-xl ps-1'>Заметки</span>
-        <textarea
-          value={value.description}
-          onChange={(e) => setValue((prevState) => ({ ...prevState, description: e.target.value }))}
-          className='h-36 resize-none m-1 p-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
-        />
+        <h3 className='font-bold text-xl ps-1 border-b-stone-200 border-b-2 mb-4 '>Заметки</h3>
+        <div className='flex items-center rounded-md border-2 border-neutral-200 bg-white m-1'>
+          <textarea
+            value={value.description}
+            onChange={(e) =>
+              setValue((prevState) => ({ ...prevState, description: e.target.value }))
+            }
+            className='h-36 w-full resize-none p-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
+          />
+        </div>
       </div>
       <div className='flex justify-between ms-1 me-1 mt-2 '>
-        <div className='border-r-white border-r-4 w-1/3 flex justify-center'>
+        <div className='border-r-stone-200 border-r-2 w-1/3 flex justify-center'>
           <button
             onClick={() => {
               navigate('/')
             }}
-            className='bg-blue-400 rounded-lg p-1'
+            className='w-full flex justify-center mr-2 border-neutral-200 border-2 hover:bg-stone-200 rounded-lg p-1'
           >
             <img
               className='w-6 h-6'
@@ -49,9 +55,9 @@ const TaskUpdateForm = ({ task }: TaskUpdateFormProps) => {
             />
           </button>
         </div>
-        <div className='border-r-white border-r-4 w-1/3 flex justify-center'>
+        <div className='border-r-stone-200 border-r-2 w-1/3 flex justify-center'>
           <button
-            className=' bg-lime-400 rounded-lg p-1'
+            className='w-full flex justify-center mr-2 ml-2 border-neutral-200 border-2 hover:bg-stone-200 rounded-lg p-1'
             onClick={() => {
               if (value.taskName) {
                 updateTask({ ...value })
@@ -71,7 +77,7 @@ const TaskUpdateForm = ({ task }: TaskUpdateFormProps) => {
               deleteTask(task.id)
               navigate('/')
             }}
-            className=' bg-red-400 rounded-lg p-1'
+            className='w-full flex justify-center ml-2 border-neutral-200 border-2 hover:bg-stone-200 rounded-lg p-1'
           >
             <img
               className='w-6 h-6'

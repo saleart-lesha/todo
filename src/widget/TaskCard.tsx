@@ -7,7 +7,7 @@ const TaskCard = () => {
   const { data: task } = useGetTaskDetailsQuery(id ?? '')
 
   return (
-    <div className='bg-blue-200 w-1/3 rounded-lg p-4'>{task && <TaskUpdateForm task={task} />}</div>
+    <div className='bg-white w-1/4 rounded-lg p-4'>{task && <TaskUpdateForm task={task} />}</div>
   )
 }
 

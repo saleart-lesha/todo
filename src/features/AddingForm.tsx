@@ -16,6 +16,7 @@ const AddingForm = () => {
       <input
         onChange={(e) => setValue(e.target.value)}
         value={value}
+        placeholder='Добавить задачу'
         className=' w-full text-lg py-1 m-2 font-medium text-gray-900 dark:text-gray-300 focus:outline-none focus:ring focus:border-blue-300 rounded-md'
       />
       <div className='mr-4 items-center flex '>
