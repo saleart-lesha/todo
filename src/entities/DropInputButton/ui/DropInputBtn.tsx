@@ -5,21 +5,17 @@ interface DropInputBtnProps {
 
 const DropInputBtn = ({ isDropInput, handlerDropInput }: DropInputBtnProps) => {
   return (
-    <div className='flex justify-center m-2'>
-      <button
-        onClick={handlerDropInput}
-        className={
-          isDropInput
-            ? 'rounded-full bg-red-200 hover:bg-red-300 inline-flex items-center w-10 h-10'
-            : 'rounded-full bg-green-200 hover:bg-green-300 inline-flex items-center w-10 h-10'
-        }
-      >
+    <div
+      onClick={handlerDropInput}
+      className='flex justify-center m-2 rounded-full hover:bg-stone-200'
+    >
+      <button className={'inline-flex items-center w-10 h-10'}>
         <img
-          className='w-10 h-10'
+          className='w-6 h-6'
           src={
             isDropInput
-              ? 'https://cdn.icon-icons.com/icons2/1157/PNG/512/1487086345-cross_81577.png'
-              : 'https://cdn.icon-icons.com/icons2/3138/PNG/512/plus_new_create_more_icon_192478.png'
+              ? 'https://cdn.icon-icons.com/icons2/2406/PNG/512/minus_subtract_icon_145958.png'
+              : 'https://cdn.icon-icons.com/icons2/1372/PNG/512/add_90924.png'
           }
           alt='Plus icon'
         />
